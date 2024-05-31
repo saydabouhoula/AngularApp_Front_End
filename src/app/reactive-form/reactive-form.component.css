@@ -1,0 +1,6 @@
+.invalid-feedback {
+    color: red; /* Couleur du texte des messages d'erreur */
+    font-size: 0.9em; /* Taille de la police des messages d'erreur */
+    margin-top: 5px; /* Marge supérieure pour séparer les messages d'erreur du champ */
+  }
+  

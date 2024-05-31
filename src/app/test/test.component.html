@@ -1,0 +1,111 @@
+<div class="container">
+    <!-- Interpolation -->
+    <div class="centered-text">
+      <span class="bold title" style="color: #ff0000; font-size: 25px;">{{ title }}</span>
+    </div>
+    <br>
+  
+    <!-- EventBinding -->
+    <button class="btn primary-btn" (click)="msg()">Click Me</button>
+    <br>
+  
+    <!-- PropertyBinding -->
+    <div [style.backgroundColor]="color" class="styled-div mt-2">PropertyBinding</div>
+    <br>
+    <div [style.backgroundColor]="color1" >ProBind</div>
+    <input type="text" [(ngModel)]="color1">
+  
+    <!-- TwoWayBinding -->
+    <input type="text" [(ngModel)]="priceMax" placeholder="Price..." class="form-control mt-2">
+    <br>
+  
+    <!-- Table - Liste des produits -->
+    <label class="section-label">Liste des produits</label>
+    <table class="table table-bordered">
+      <thead>
+        <tr >
+          <th>Id</th>
+          <th>Title</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Like</th>
+          <th style="text-align: center;">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of listProduct; let p=index">
+          <ng-container *ngIf="product.price > priceMax || priceMax == null">
+            <td>{{ product.id }}</td>
+            <td>{{ product.title }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.quantity }}</td>
+            <td>{{ product.like }}</td>
+            <td style="text-align: center;">
+              <button (click)="increment(p)" class="btn btn-outline-primary spaced-btn">Like</button>
+              <button (click)="buy(p)" class="btn btn-outline-success spaced-btn" [disabled]="product.quantity == 0">Buy</button>
+              <button class="btn btn-outline-info spaced-btn" [routerLink]="['/product', product.id]">Detail</button>
+            </td>
+          </ng-container>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Table - Liste des résidences -->
+    <label class="section-label">Liste des résidences</label>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Image</th>
+          <th style="text-align: center;">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let residence of listResidences; let p=index">
+          <td>{{ residence.id }}</td>
+          <td>{{ residence.name }}</td>
+          <td>{{ residence.address }}</td>
+          <td>{{ residence.image }}</td>
+          <td style="text-align: center;">
+            <button class="btn btn-outline-info spaced-btn" (click)="show(residence)">Show</button>
+            <button class="btn btn-outline-success spaced-btn" (click)="add(residence)">Like</button>
+            <button class="btn btn-outline-secondary spaced-btn" [routerLink]="['/apartments', residence.id]">Details</button>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Affichage des appartements -->
+    <label class="section-label">Liste des appartements</label>
+    <div *ngIf="listApartments.length === 0" class="no-data-msg">No Apartments found</div>
+    <table *ngIf="listApartments.length > 0" class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Apartment Number</th>
+          <th>Floor Number</th>
+          <th>Surface</th>
+          <th>Terrace</th>
+          <th>Terrace Surface</th>
+          <th>Category</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let apartment of listApartments">
+          <td>{{ apartment.id }}</td>
+          <td>{{ apartment.appartNum }}</td>
+          <td>{{ apartment.floorNum }}</td>
+          <td>{{ apartment.surface }}</td>
+          <td>{{ apartment.terrace }}</td>
+          <td>{{ apartment.surfaceTerrace }}</td>
+          <td>{{ apartment.category }}</td>
+          <td>{{ apartment.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -1,0 +1,53 @@
+.container {
+  margin: 20px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.title {
+  color: #ff0000;
+  font-size: 25px;
+}
+
+.primary-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.styled-div {
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+}
+
+.section-label {
+  font-weight: bold;
+  color: blue;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.table-bordered {
+  border: 1px solid #dee2e6;
+}
+
+.table th, .table td {
+  padding: 8px;
+  vertical-align: top;
+}
+
+.no-data-msg {
+  font-weight: bold;
+  color: red;
+}
+.spaced-btn {
+  margin-right: 15px; /* Vous pouvez ajuster la valeur de la marge selon vos préférences */
+}  

@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row  mt-4">
+        <div class="col-md-6">
+            <input type="text" [(ngModel)]="priceMax" placeholder="Price..." class="form-control">
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Like</th>
+                        <th style="text-align: center;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let i of products; let p=index">
+                        <tr *ngIf="i.price > priceMax || priceMax == null">
+                            <td>{{ i.id }}</td>
+                            <td>{{ i.title }}</td>
+                            <td>{{ i.price }}</td>
+                            <td>{{ i.quantity }}</td>
+                            <td>{{ i.like }}</td>
+                            <td style="text-align: center;">
+                                <button (click)="increment(p)" class="btn btn-outline-primary spaced-btn">Like</button>
+                                <button (click)="buy(p)" class="btn btn-outline-success spaced-btn" [disabled]="i.quantity == 0">Buy</button>
+                                <button class="btn btn-outline-info spaced-btn" [routerLink]="['/product', i.id]">Detail</button>
+                            </td>
+                        </tr>
+                    </ng-container>
+                    <tr *ngIf="products.length === 0">
+                        <td colspan="6" style="text-align: center;">No products found</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{{floatNumber}}

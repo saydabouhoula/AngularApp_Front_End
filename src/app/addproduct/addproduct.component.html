@@ -1,0 +1,50 @@
+<p>FormGroup</p>
+
+<form [formGroup]="AddForm">
+    <label> Id</label>
+    <input class="form-control" type="text" placeholder="id" formControlName="id">
+
+    <div class="alert alert-danger" *ngIf="this.AddForm.controls['id'].invalid
+    && this.AddForm.controls['id'].touched">
+        <div *ngIf="this.AddForm.get('id')?.hasError('required')">Id required</div>
+        <div *ngIf="this.AddForm.get('id')?.hasError('pattern')">Id positive</div>
+    </div>
+
+    <label> Title</label>
+    <input class="form-control" type="text" placeholder="title" formControlName="title">
+
+    <div class="alert alert-danger" *ngIf="this.AddForm.controls['title'].invalid
+    && this.AddForm.controls['title'].touched">
+        <div *ngIf="this.AddForm.get('title')?.hasError('required')">title required</div>
+        <div *ngIf="this.AddForm.get('title')?.hasError('minlength')">title minLength 6</div>
+    </div>
+
+
+    <label> Quantity</label>
+    <input class="form-control" type="text" placeholder="quantity" formControlName="quantity">
+
+    <div class="alert alert-danger" *ngIf="this.AddForm.controls['quantity'].invalid
+    && this.AddForm.controls['quantity'].touched">
+        <div *ngIf="this.AddForm.get('quantity')?.hasError('required')">quantity required</div>
+        <div *ngIf="this.AddForm.get('quantity')?.hasError('pattern')">quantity positive</div>
+    </div>
+
+    <label> Price</label>
+    <input class="form-control" type="text" placeholder="price" formControlName="price">
+
+    <div class="alert alert-danger" *ngIf="this.AddForm.controls['price'].invalid
+    && this.AddForm.controls['price'].touched">
+        <div *ngIf="this.AddForm.get('price')?.hasError('required')">price required</div>
+    </div>
+
+    <label> Like</label>
+    <input class="form-control" type="text" placeholder="like" formControlName="like">
+
+    <div class="alert alert-danger" *ngIf="this.AddForm.controls['like'].invalid
+    && this.AddForm.controls['like'].touched">
+        <div *ngIf="this.AddForm.get('like')?.hasError('required')">like required</div>
+    </div>
+
+
+    <input class="btn btn-success mt-3" type="button" value="save" (click)="save()" >
+    <form>

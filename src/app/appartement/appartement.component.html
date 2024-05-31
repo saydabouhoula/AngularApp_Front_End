@@ -1,0 +1,35 @@
+<div class="container">
+<div class="row mt-3">
+  <div class="col-md-12">
+      <table class="table table-bordered">
+          <thead>
+              <tr>
+                  <th>Id</th>
+                  <th>Apartment Number</th>
+                  <th>Floor Number</th>
+                  <th>Surface</th>
+                  <th>Terrace</th>
+                  <th>Terrace Surface</th>
+                  <th>Category</th>
+                  <th>Description</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let apartment of listApartments">
+                  <td>{{ apartment.id }}</td>
+                  <td>{{ apartment.appartNum }}</td>
+                  <td>{{ apartment.floorNum }}</td>
+                  <td>{{ apartment.surface }}</td>
+                  <td>{{ apartment.terrace }}</td>
+                  <td>{{ apartment.surfaceTerrace }}</td>
+                  <td>{{ apartment.category }}</td>
+                  <td>{{ apartment.description }}</td>
+              </tr>
+              <tr *ngIf="listApartments.length === 0">
+                  <td colspan="8" style="text-align: center;">No Apartment found</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
+</div>
